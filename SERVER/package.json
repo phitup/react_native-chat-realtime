@@ -1,0 +1,24 @@
+{
+  "name": "chatrealtime",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/phitup/react_native-chat-realtime.git"
+  },
+  "author": "phitup",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/phitup/react_native-chat-realtime/issues"
+  },
+  "homepage": "https://github.com/phitup/react_native-chat-realtime#readme",
+  "dependencies": {
+    "ejs": "^2.5.7",
+    "express": "^4.16.3",
+    "socket.io": "^2.0.4"
+  }
+}
