@@ -1,6 +1,6 @@
 var express = require("express");
 var app = express();
-
+var open = require("open");
 app.use(express.static("public"));
 app.set("view engine" , "ejs");
 app.set("views" , "./views");
