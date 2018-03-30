@@ -3,32 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <title>RealTime</title>
-    <script src="public/jquery-3.3.1.min.js" type="text/javascript"></script>
-    <script src="../node_modules/socket.io-client/dist/socket.io.js"></script>
-    <link href="./public/main.css">
-    <script src="./public/xuly.js"></script> 
-      
+    <script src="jquery.js"></script>
+    <script src="node_modules/socket.io-client/dist/socket.io.js"></script>
+    <link rel="stylesheet" type="text/css" href="main.css">
+    <script src="xuly.js"></script> 
+   
 </head>
 <body>
     <div class="login">
-        <input type="text" placeholder="Name ..." id="username">
         <button id="VaoChat">VÀO CHAT</button>
     </div>
     <div class="wrapper">
         <div class="listOnline">
             <div id="header"><div class="content">List Online</div></div>
             <div id="list">
-                
+                <!-- Danh Sách Người Online -->
             </div>
         </div>
         <div class="ChatRealTime">
             <div id="top">
                 <p>Hello <a href="#" id="LogOut">Đăng Xuất</a></p>
             </div>
-            <div id="Chat-Box"></div>
+            <div id="Chat-Box">
+                <!-- Nội Dung Chat -->
+                <!-- <div id="Content">ABC</div> -->
+            </div>
             <div id="Chat">
-                <input type="text" placeholder="Text ...">
-                <button>Send</button>
+                <input type="text" placeholder="Text ..." id="ContentChat">
+                <button id="Send">Send</button>
             </div>
         </div>
     </div>

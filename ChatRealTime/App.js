@@ -13,7 +13,7 @@ export default class App extends Component {
 
   constructor(props){
     super(props);
-    this.socket = io("http://192.168.1.84:3000" , {jsonp:false});
+    this.socket = io("http://192.168.1.4:3000" , {jsonp:false});
     this.state={
       dataSource: new ListView.DataSource({rowHasChanged:(r1 , r2) => r1 !== r2}) ,
       text: ''

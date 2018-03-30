@@ -1,0 +1,99 @@
+.wrapper{
+    width: 800px;
+    height: 500px;
+    margin: 0 auto;
+    padding-top: 30px;
+}
+
+.listOnline{
+    float: left;
+    height: 100%;
+    width: 29%;
+    background-color: aqua;
+    border: 1px solid;
+}
+
+#header{
+    height: 10%;
+    width: 100%;
+    border-bottom: 1px solid;
+    text-align: center;
+    font-size: 30px; 
+}
+
+.content{
+    padding-top: 10px;
+}
+
+#list{
+    height: 90%;
+    width: 100%;
+    background-color: brown;
+    text-align: center;
+    color: white;
+    font-size: 20px;
+}
+
+#member-list{
+    padding-top: 20px;
+}
+
+.ChatRealTime{
+    float: right;
+    height: 100%;
+    width: 70%;
+    background-color: pink;
+    border: 1px solid;
+}
+
+#top{
+    height: 10%;
+    width: 100%;
+    background-color: yellow;
+    border-bottom: 1px solid;
+}
+
+#top p{
+    float: right;
+    padding-right: 10px;
+}
+
+#Chat-Box{
+    height: 80%;
+    width: 100%;
+    border-bottom: 1px solid;
+}
+
+#Chat{
+    height: 10%;
+    width: 100%;
+}
+
+#Chat input{
+    float: left;
+    height: 80%;
+    width: 79%;
+    font-size: 20px;
+}
+
+#Chat button{
+    float: right;
+    height: 90%;
+    width: 20%;
+}
+
+.login{
+    height: 1000;
+    width: 500;
+}
+
+.login button{
+    height: 100px;
+    width: 100px;
+    margin: 200px 200px 0 600px;
+}
+
+#Content{
+    font-size: 20px;
+    width: 30%;
+}

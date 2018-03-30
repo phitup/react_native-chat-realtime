@@ -1,28 +1,32 @@
 var express = require("express");
 var app = express();
 
+app.use(express.static("public"));
 app.set("view engine" , "ejs");
 app.set("views" , "./views");
 
 var server = require("http").Server(app);
 var io = require("socket.io")(server);
 
+var listOnline = [];
+
 io.on("connection" , function(socket){
-    console.log("co nguoi vua ket noi" + socket.id);
+    console.log("co nguoi vua ket noi " + socket.id);
+
+    listOnline.push(socket.id);
+    io.sockets.emit("Server-send-username" , listOnline);
 
     socket.on("disconnect" , function(){
         console.log(socket.id + " Ngat ket noi");
+        OfflinePerson = listOnline.indexOf(socket.id);
+        listOnline.splice(OfflinePerson , 1);
+        io.sockets.emit("Server-send-disconnect" , listOnline);
     });
 
     socket.on("Client-send-data" , function(data){
-        console.log(data);
         io.sockets.emit("Server-send-data" , data);
     });
-
-    socket.on("Client-send-username" , function(data){
-        // io.sockets.emit("Server-send-username" , data);
-        console.log(data);
-    })
+    
 });
 
 app.get("/" , function(req , res){
