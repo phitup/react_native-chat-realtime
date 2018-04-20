@@ -1,14 +1,21 @@
-var express = require("express");
-var app = express();
-var open = require("open");
+const express = require("express");
+const app = express();
+const open = require("open");
+const User = require("./models/User");
+const Master = require("./models/Master");
+const Comment = require("./models/Comment");
+const Like = require("./models/Like");
+const question = require("./models/question");
+
 app.use(express.static("public"));
 app.set("view engine" , "ejs");
 app.set("views" , "./views");
 
-var server = require("http").Server(app);
-var io = require("socket.io")(server);
 
-var listOnline = [];
+const server = require("http").Server(app);
+const io = require("socket.io")(server);
+
+const listOnline = [];
 
 io.on("connection" , function(socket){
     console.log("co nguoi vua ket noi " + socket.id);
@@ -34,3 +41,4 @@ app.get("/" , function(req , res){
 });
 
 server.listen(3000 , () => console.log("Start Server"));
+
