@@ -16,10 +16,8 @@ const styles = StyleSheet.create({
         flex:1
     },
     logo:{
-        width: 200,
-        height:200 ,
-        marginTop: 30,
-        resizeMode:'contain'        
+        width:220,
+        resizeMode:'contain'
     },
     bottomContainer:{
         flex:1,

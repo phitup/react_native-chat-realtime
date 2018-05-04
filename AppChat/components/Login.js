@@ -1,15 +1,26 @@
 import React, { Component } from 'react';
 import {
-    AppRegistry,
-    View,
-    Text,
-    TouchableOpacity ,Image ,TextInput ,ListView ,TouchableHighlight ,
-    Picker , Item , StatusBar ,ImageBackground
+    View, Text, TouchableOpacity ,Image ,TextInput  ,TouchableHighlight  , StatusBar ,ImageBackground,ActivityIndicator
  } from 'react-native';
-import loginStyle from './styles/loginStyle.js';
+import loginStyle from './styles/loginStyle';
+import { StackNavigator } from 'react-navigation'; 
+import { fetchLogin } from './connectRAE/path';
 
 export default class Login extends Component {
 
+    static defaultProps = {
+        fetchLogin
+    }
+
+    static navigationOptions = {
+        header: null,
+    }
+
+    state = {
+        loading: false,
+        user: []
+    }
+    
     constructor(props){
         super(props);
         background = require('../images/backgroundLogin.jpg');
@@ -17,6 +28,15 @@ export default class Login extends Component {
         facebook = require('../images/icon/facebook.jpg');
         gmail = require('../images/icon/gmail.png');
         twitter = require('../images/icon/twitter.jpg');
+        this.state = { user: [] };
+    }
+
+    async componentDidMount() {
+        this.setState({ loading:true });
+        const data = await this.props.fetchLogin();
+        setTimeout(() => {
+            this.setState({ loading: false , user: data.user })
+        }, 2000);
     }
 
     onPress(){
@@ -24,6 +44,13 @@ export default class Login extends Component {
     }
 
     render(){
+        if(this.state.loading){
+            return (
+                <View>
+                    <ActivityIndicator size="large" />
+                </View>
+            )
+        }
         return(
             <ImageBackground source={background} style={loginStyle.container}>
                 <StatusBar hidden={true} />
@@ -31,7 +58,10 @@ export default class Login extends Component {
                     <Image source={logo} style={loginStyle.logo}/>
                 </View>
                 <View style={loginStyle.bottomContainer}>
-                    <Text style={loginStyle.register}>REGISTER</Text>
+                <Text>{this.state.user}</Text>
+                    <TouchableOpacity onPress={() => this.props.navigation.navigate('Register')}>
+                        <Text style={loginStyle.register}>REGISTER</Text>
+                    </TouchableOpacity>
                     <TextInput placeholder={'Username'} style={loginStyle.bottomText} underlineColorAndroid={'transparent'} />
                     <TextInput placeholder={'Password'} style={loginStyle.bottomText} secureTextEntry={true} underlineColorAndroid={'transparent'}/>
                     <TouchableHighlight style={loginStyle.button} onPress={()=>{this.onPress()}}>
@@ -57,7 +87,7 @@ export default class Login extends Component {
                         </View>
                     </View>
                 </View>
-            </ImageBackground>
+        </ImageBackground>
         );
     }
 }

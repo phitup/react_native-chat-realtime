@@ -1,10 +1,6 @@
 import React, { Component } from 'react';
 import {
-    AppRegistry,
-    View,
-    Text,
-    TouchableOpacity ,Image ,TextInput ,ListView ,TouchableHighlight ,
-    Picker , Item , StatusBar ,ImageBackground
+  View, Text, TouchableOpacity ,Image ,TextInput  ,TouchableHighlight  , StatusBar ,ImageBackground
  } from 'react-native';
 import loginStyle from './styles/registerStyle';
 

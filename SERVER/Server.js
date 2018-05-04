@@ -1,20 +1,18 @@
 const express = require("express");
 const app = express();
-const open = require("open");
 const User = require("./models/User");
-const Master = require("./models/Master");
-const Comment = require("./models/Comment");
-const Like = require("./models/Like");
-const question = require("./models/question");
+const parser = require('body-parser').urlencoded({ extended: false });
+
+const router = express.Router();
 
 app.use(express.static("public"));
 app.set("view engine" , "ejs");
 app.set("views" , "./views");
-
+app.use('/*', router);
 
 const server = require("http").Server(app);
 const io = require("socket.io")(server);
-
+app.use(parser);
 const listOnline = [];
 
 io.on("connection" , function(socket){
@@ -40,5 +38,11 @@ app.get("/" , function(req , res){
     res.render("index");
 });
 
-server.listen(3000 , () => console.log("Start Server"));
+router.get('/' , function(req , res , next){
+    res.json([
+        { "name": "Phi Tup" },
+        { "name": "Phi Tup 2" }
+    ]);
+});
 
+server.listen(3000 , () => console.log("Start Server"));
