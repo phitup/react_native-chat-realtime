@@ -13,23 +13,31 @@ const styles = StyleSheet.create({
         resizeMode:'stretch'
     },
     topContainer:{
-        flex:1
+        flex:0.3
     },
     logo:{
-        width:220,
-        resizeMode:'contain'
+        width:170,
+        height:170,
+        resizeMode:'contain',
+        position: 'absolute',
+        top: 0,
+        bottom: 0,
+        left: -80,
+        right: 0,
     },
     bottomContainer:{
-        flex:1,
+        flex:0.7,
         width:330
     },
     bottomText:{
         borderWidth:1,
         height:40,
-        color:'white',
+        color:'rgba(17, 43, 43, 0.69)',
         borderColor:'transparent',
         fontSize:12,
-        backgroundColor:'rgba(0,0,0,0.3)',
+        backgroundColor:'#ffffff',
+        borderBottomWidth: 0.4,
+        borderBottomColor: 'rgba(45, 240, 211, 0.27)',
     },
     register:{
          fontStyle:'italic',
@@ -41,11 +49,11 @@ const styles = StyleSheet.create({
     button:{
         justifyContent:'center',
         alignItems:'center',
-        padding:5,
-        backgroundColor:'rgba(226,39,44,0.5)',
+        padding:8,
+        backgroundColor:'lightblue',
     },
     buttonText:{
-        fontSize:12,
+        fontSize:17,
         color:'white'
     },
     connect:{

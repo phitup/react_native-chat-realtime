@@ -7,11 +7,16 @@
     "test": "jest"
   },
   "dependencies": {
+    "moment": "^2.22.1",
     "mongoose": "^5.0.15",
+    "native-base": "^2.4.5",
     "react": "16.3.1",
     "react-native": "0.55.3",
+    "react-native-elements": "^0.19.1",
     "react-native-emoji-selector": "^0.1.6",
-    "react-native-image-picker": "^0.26.7",
+    "react-native-image-picker": "^0.26.10",
+    "react-native-tab-navigator": "^0.3.4",
+    "react-native-vector-icons": "^4.6.0",
     "react-navigation": "^1.5.11"
   },
   "devDependencies": {

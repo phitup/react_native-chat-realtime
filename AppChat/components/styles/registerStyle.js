@@ -15,15 +15,14 @@ const styles = StyleSheet.create({
     bottomContainer:{
         flex:1,
         width:330,
-        marginTop: 200,
-        
+        marginTop: 150,
     },
     bottomText:{
         borderWidth:1,
-        height:60,
+        height:50,
         color:'rgba(17, 43, 43, 0.69)',
         borderColor:'transparent',
-        fontSize:22,
+        fontSize:17,
         backgroundColor:'#ffffff',
         borderBottomWidth: 0.4,
         borderBottomColor: 'rgba(45, 240, 211, 0.27)',
@@ -31,11 +30,11 @@ const styles = StyleSheet.create({
     button:{
         justifyContent:'center',
         alignItems:'center',
-        padding:10,
+        padding:8,
         backgroundColor:'lightblue',
     },
     buttonText:{
-        fontSize:20,
+        fontSize:18,
         color:'white'
     },
 });

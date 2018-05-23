@@ -15,4 +15,5 @@ const Screen = StackNavigator(
     initialRouteName: 'Login',
   }
 );
+
  export default Screen;

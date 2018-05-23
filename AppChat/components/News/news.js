@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import {
-    View, Text, Image ,TextInput ,TouchableOpacity ,Button
+    View, Text, Image ,TextInput ,TouchableOpacity ,Button ,ScrollView
  } from 'react-native';
 import newsStyle from '../styles/newsStyle';
 import EmojiSelector, { Categories } from 'react-native-emoji-selector';
-
+import Comment from '../Social/Comment';
 
 var ImagePicker = require('react-native-image-picker');
 
@@ -41,15 +41,20 @@ export default class News extends Component {
         this.state ={
             status:false,
             inputTextIcons: '',
-            show: true
+            show: true , 
+            avatarSource: null,
+            comment: true,
         }
     }
 
     render(){
+        // <Image source={this.state.avatarSource} style={{height:35,width:35,}} />
+        const img = this.state.avatarSource == null ? null: alert("Thêm Thành Công");
         const { inputTextIcons } = this.state;
         const imgSource = this.state.show ? noneLike : Like;
+        const comments = this.state.comment ? null : <Comment />
         return(
-            <View style={newsStyle.container}>
+            <ScrollView style={newsStyle.container}>
                 <View style={newsStyle.topScreen}>
                     {/* Top Screen 1 */}
                     <View style={newsStyle.topScreen1}>
@@ -72,16 +77,16 @@ export default class News extends Component {
                                 <Text style={newsStyle.TextStatus}>image</Text>
                             </View>
                             </TouchableOpacity>
-                            <TouchableOpacity onPress={this.ShowHideTextComponentView}>
+                            {/* <TouchableOpacity onPress={this.ShowHideTextComponentView}>
                             <View style={newsStyle.ImageandText1}>
                                 <Image source={happyIcons} style={newsStyle.imageIcons} />
                                 <Text style={newsStyle.textfunctionStatus}>icon</Text>
                             </View>
-                            </TouchableOpacity>
+                            </TouchableOpacity> */}
                         </View>
-                        {
+                        {/* {
                             this.state.status ? <EmojiSelector showSearchbar={false} category={Categories.symbols} onEmojiSelected={emoji => this.setState({ inputTextIcons: inputTextIcons + emoji })} /> : null
-                        }
+                        } */}
                     </View>
                 </View>
                 <View style={newsStyle.mediumScreen}>
@@ -109,16 +114,22 @@ export default class News extends Component {
                                     <Text style={newsStyle.TextStatus}>Like</Text>
                                 </View>
                             </TouchableOpacity>
-                            <TouchableOpacity>
+                            <TouchableOpacity activeOpacity = { .5 } onPress={() => this.showComment()}>
                                 <View style={newsStyle.ImageandText}>   
                                     <Image source={noneCmt} style={newsStyle.imageLike} />
                                     <Text style={newsStyle.TextStatus}>Comment</Text>
                                 </View>
                             </TouchableOpacity>
                         </View>
+                        <View style={newsStyle.Comment}>
+                            {comments}
+                        </View>
                     </View>
                 </View>
-            </View>
+                <View style={newsStyle.bottomScreen}>
+
+                </View>
+            </ScrollView>
         );
     }
     show(){
@@ -162,6 +173,14 @@ export default class News extends Component {
         this.setState({
             show: imgSource
         });
-        const b = this.state.show ? noneLike : Like;
+        // const b = this.state.show ? noneLike : Like;
+    }
+
+    showComment(){
+        const comments = false;
+        this.setState({
+            comment: comments
+        });
+
     }
 }

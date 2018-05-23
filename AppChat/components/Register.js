@@ -2,32 +2,25 @@ import React, { Component } from 'react';
 import {
   View, Text, TouchableOpacity ,Image ,TextInput  ,TouchableHighlight  , StatusBar ,ImageBackground
  } from 'react-native';
-import loginStyle from './styles/registerStyle';
+import loginStyle from './styles/loginStyle';
 
 export default class Login extends Component {
 
-    constructor(props){
-        super(props);
-        background = require('../images/backgroundRegister.png');
-    }
-
     onPress(){
-        alert("Success");
+        alert("Register Success");
     }
 
     render(){
         return(
-            <ImageBackground source={background} style={loginStyle.container}>
-                <StatusBar hidden={true} />
-                <View style={loginStyle.bottomContainer}>
-                    <TextInput placeholder={'Username'} style={loginStyle.bottomText} underlineColorAndroid={'transparent'} />
+            <View>
+                    <TextInput placeholder={'Email'} style={loginStyle.bottomText} underlineColorAndroid={'transparent'}/>
+                    <TextInput placeholder={'Phone Number'} style={loginStyle.bottomText} underlineColorAndroid={'transparent'}/>
+                    <TextInput placeholder={'Username'} style={loginStyle.bottomText} underlineColorAndroid={'transparent'}/>
                     <TextInput placeholder={'Password'} style={loginStyle.bottomText} secureTextEntry={true} underlineColorAndroid={'transparent'}/>
-                    <TextInput placeholder={'Confirm Password'} style={loginStyle.bottomText} secureTextEntry={true} underlineColorAndroid={'transparent'}/>
                     <TouchableHighlight style={loginStyle.button} onPress={()=>{this.onPress()}}>
                         <Text style={loginStyle.buttonText}>REGISTER</Text>
                     </TouchableHighlight>
-                </View>
-            </ImageBackground>
+            </View>
         );
     }
 }

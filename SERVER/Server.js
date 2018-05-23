@@ -34,15 +34,15 @@ io.on("connection" , function(socket){
     
 });
 
-app.get("/" , function(req , res){
-    res.render("index");
-});
+// app.get("/" , function(req , res){
+//     res.render("index");
+// });
 
-router.get('/' , function(req , res , next){
-    res.json([
-        { "name": "Phi Tup" },
-        { "name": "Phi Tup 2" }
-    ]);
-});
+// router.get('/' , function(req , res , next){
+//     res.json([
+//         { "name": "Phi Tup" },
+//         { "name": "Phi Tup 2" }
+//     ]);
+// });
 
 server.listen(3000 , () => console.log("Start Server"));

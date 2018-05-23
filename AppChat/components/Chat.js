@@ -16,7 +16,8 @@ export default class App extends Component {
     this.socket = io("http://192.168.1.10:3000" , {jsonp:false});
     this.state={
       dataSource: new ListView.DataSource({rowHasChanged:(r1 , r2) => r1 !== r2}) ,
-      text: ''
+      text: '',
+      value:''
     };
   }
 
@@ -39,6 +40,7 @@ export default class App extends Component {
             onChangeText = {
               (text) => this.setState({text})
             }
+            autoCapitalize="none"
           />
           <TouchableOpacity style={styles.submit} onPress={() =>{
             this.socket.emit("Client-send-data" , this.state.text)

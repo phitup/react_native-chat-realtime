@@ -14,9 +14,14 @@ const styles = StyleSheet.create({
         paddingBottom: 8,
     },
     mediumScreen:{
-        flex:0.8,
+        flex:0.7,
         marginTop: 20,
         backgroundColor: 'white',
+    },
+    bottomScreen:{
+        flex:0.1,
+        height:10,
+        backgroundColor:'#fff'
     },
     imageName:{
         flex:0.2,
@@ -95,7 +100,7 @@ const styles = StyleSheet.create({
         paddingRight: 3,
     },
     imagePost:{
-        flex:0.8,
+        flex:0.5,
         alignItems: 'center',
     },
     LikeandCmt:{
@@ -103,8 +108,12 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         backgroundColor:'#f6f7f9',
     },
+    Comment:{
+        flex:0.1
+    },
     ImageandText:{
-        flex:0.4,
+        flex:1,
+        marginLeft: 5,
         flexDirection: 'row',
         backgroundColor:'#f6f7f9',
         borderRadius: 100,
